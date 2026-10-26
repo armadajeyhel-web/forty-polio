@@ -1,0 +1,1602 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content=" Jose Armada's BSIT professional portfolio">
+  <title> Jose Rizal | BSIT Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --paper: #0b0a06;
+      --surface: #17150e;
+      --ink: #f3eedc;
+      --muted: #c4bc9c;
+      --line: #49432d;
+      --red: #e7b934;
+      --red-light: #ffe08a;
+      --coral: #d6a91f;
+      --shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 78px; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Manrope", sans-serif;
+      transition: 0.25s ease;
+    }
+
+    a { text-decoration: none; }
+    .mono, .eyebrow, .section-index { font-family: "DM Mono", monospace; }
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(11, 10, 6, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav-wrap {
+      min-height: 66px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: var(--ink);
+      font-size: 0.8rem;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: var(--red);
+      color: var(--paper);
+      font: 0.7rem "DM Mono", monospace;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: clamp(9px, 1.7vw, 22px);
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.68rem;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover { color: var(--ink); }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .icon-button {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: var(--surface);
+      color: var(--ink);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: clamp(65px, 10vw, 125px) 0 75px;
+    }
+
+    .hero:after {
+      position: absolute;
+      z-index: -1;
+      top: 55px;
+      right: 5%;
+      width: clamp(180px, 27vw, 350px);
+      aspect-ratio: 1;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      content: "";
+      box-shadow: 0 0 0 28px var(--paper), 0 0 0 29px var(--line), 0 0 0 58px var(--paper), 0 0 0 59px var(--line);
+      opacity: 0.6;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 55px;
+      align-items: end;
+    }
+
+    .eyebrow {
+      color: var(--red-light);
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 17px 0;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 800;
+      letter-spacing: -0.065em;
+      line-height: 0.98;
+    }
+
+    h1 span { color: var(--red-light); }
+
+    .role-line {
+      min-height: 30px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .typing-caret {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--coral);
+      animation: blink 0.8s steps(2) infinite;
+      transform: translateY(2px);
+    }
+
+    @keyframes blink { to { opacity: 0; } }
+
+    .hero-copy {
+      max-width: 590px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    .hero-aside { display: grid; gap: 18px; }
+    .profile-card {
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: var(--surface);
+      text-align: center;
+    }
+    .profile-photo {
+      display: grid;
+      place-items: center;
+      width: 168px;
+      aspect-ratio: 1;
+      overflow: hidden;
+      border: 3px solid var(--red);
+      border-radius: 50%;
+      background: linear-gradient(145deg, #2a2618, #15130c);
+      color: var(--red-light);
+      font-size: 3.5rem;
+    }
+    .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .button-primary, .button-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 45px;
+      padding: 0 16px;
+      border: 1px solid var(--ink);
+      border-radius: 3px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      transition: transform 0.2s ease;
+    }
+
+    .button-primary {
+      border-color: var(--red);
+      background: var(--red);
+      color: var(--paper);
+    }
+
+    .button-secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .button-primary:hover, .button-secondary:hover { transform: translateY(-2px); }
+    .button-primary:hover { background: var(--red-light); color: var(--paper); }
+
+    .modal-content { border: 1px solid var(--line); background: var(--surface); color: var(--ink); }
+    .modal-header, .modal-footer { border-color: var(--line); }
+    .btn-close { filter: invert(1) grayscale(1); }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 23px;
+      flex-wrap: wrap;
+    }
+
+    .social-links a {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--muted);
+      font-size: 0.74rem;
+    }
+
+    .hero-note {
+      position: relative;
+      max-width: 280px;
+      justify-self: end;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      transform: rotate(2deg);
+    }
+
+    .hero-note:before {
+      position: absolute;
+      top: -10px;
+      left: 22px;
+      width: 72px;
+      height: 20px;
+      background: var(--red);
+      content: "";
+    }
+
+    .note-label {
+      color: var(--muted);
+      font-size: 0.63rem;
+      text-transform: uppercase;
+    }
+
+    .hero-note p {
+      margin: 12px 0 0;
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+
+    .section {
+      padding: 78px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 68px 1fr auto;
+      gap: 15px;
+      align-items: start;
+      margin-bottom: 34px;
+    }
+
+    .section-index {
+      padding-top: 7px;
+      color: var(--red-light);
+      font-size: 0.7rem;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: clamp(2rem, 4.4vw, 3.7rem);
+      font-weight: 800;
+      letter-spacing: -0.055em;
+      line-height: 1.05;
+    }
+
+    .section-intro {
+      max-width: 280px;
+      margin: 7px 0 0;
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.7;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 55px;
+    }
+
+    .about-copy {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.9;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .stat {
+      padding: 15px 10px;
+      border-top: 2px solid var(--red-light);
+      background: var(--surface);
+    }
+
+    .stat-value {
+      display: block;
+      font-size: 1.9rem;
+      font-weight: 800;
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 0.62rem;
+    }
+
+    .skills-layout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .skill-group {
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .skill-group h3 {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 17px;
+      font-size: 0.9rem;
+      font-weight: 800;
+    }
+
+    .skill-group h3 i { color: var(--red-light); }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-tag {
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 0.7rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 13px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 340px;
+      padding: 20px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .project-art {
+      position: relative;
+      display: flex;
+      align-items: end;
+      overflow: hidden;
+      height: 120px;
+      margin: -20px -20px 18px;
+      padding: 14px 18px;
+      background: #242116;
+      color: #f0f0f0;
+    }
+
+    .project-art:before, .project-art:after {
+      position: absolute;
+      right: 8px;
+      width: 125px;
+      height: 90px;
+      border: 1px solid rgba(231, 185, 52, 0.25);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .project-art:before { top: -20px; }
+    .project-art:after {
+      top: 18px;
+      right: 35px;
+      transform: rotate(25deg);
+    }
+
+    .art-data { background: #292516; }
+    .art-edupedia { height: 150px; padding: 0; background: #eef2f5; }
+    .art-edupedia:before, .art-edupedia:after { display: none; }
+    .art-edupedia img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .art-ai { height: 150px; padding: 0; background: var(--paper); }
+    .art-ai:before, .art-ai:after { display: none; }
+    .art-ai img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .art-peak { height: 150px; padding: 0; background: #eef2f5; }
+    .art-peak:before, .art-peak:after { display: none; }
+    .art-peak img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .art-code { z-index: 1; font: 0.64rem "DM Mono", monospace; }
+
+    .certificate-grid {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .certificate-card {
+      display: block;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      background: var(--surface);
+      text-decoration: none;
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      padding: 0;
+      width: 100%;
+      color: inherit;
+    }
+
+    .certificate-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .certificate-card img {
+      display: block;
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      background: #15130c;
+    }
+
+    .certificate-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      background: rgba(11, 10, 6, 0.85);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease;
+    }
+
+    .certificate-modal.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .certificate-modal-panel {
+      position: relative;
+      width: min(940px, 92vw);
+      max-height: 90vh;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .certificate-modal-panel img {
+      display: block;
+      width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      background: #15130c;
+    }
+
+    .certificate-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      z-index: 1;
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      background: rgba(11, 10, 6, 0.75);
+      color: var(--ink);
+      font-size: 1.4rem;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .project-meta {
+      display: flex;
+      justify-content: space-between;
+      color: var(--muted);
+      font: 0.61rem "DM Mono", monospace;
+      text-transform: uppercase;
+    }
+
+    .project-card h3 {
+      margin: 12px 0 8px;
+      font-size: 1.12rem;
+      font-weight: 800;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      font-size: 0.75rem;
+      line-height: 1.7;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 11px;
+      margin-top: auto;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--ink);
+      font-size: 0.68rem;
+      font-weight: 800;
+    }
+
+    .case-list { border-top: 1px solid var(--line); }
+    .case-item { border-bottom: 1px solid var(--line); }
+    .case-item summary {
+      display: grid;
+      grid-template-columns: 58px 1fr 28px;
+      gap: 12px;
+      align-items: center;
+      padding: 18px 4px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .case-item summary::-webkit-details-marker { display: none; }
+    .case-num {
+      color: var(--red-light);
+      font: 0.68rem "DM Mono", monospace;
+    }
+    .case-item summary strong { font-size: 0.88rem; }
+
+    .case-icon {
+      display: grid;
+      place-items: center;
+      width: 27px;
+      height: 27px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+    }
+
+    .case-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 30px;
+      padding: 0 45px 22px 75px;
+    }
+
+    .case-field label {
+      color: var(--red-light);
+      font: 0.61rem "DM Mono", monospace;
+      text-transform: uppercase;
+    }
+
+    .case-field p {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 0.73rem;
+      line-height: 1.7;
+    }
+
+    .security-panel {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .security-aside {
+      padding: 30px;
+      background: var(--ink);
+      color: var(--surface);
+    }
+
+    .security-aside h3 {
+      margin: 18px 0 10px;
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
+
+    .security-body {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px 30px;
+      padding: 30px;
+    }
+
+    .security-body h4 {
+      margin: 0 0 10px;
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    .security-body p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.8rem;
+    }
+
+    .code-sample {
+      grid-column: 1 / -1;
+      margin: 0;
+      padding: 20px;
+      background: #15130c;
+      border: 1px solid var(--line);
+      font: 0.66rem "DM Mono", monospace;
+      color: var(--ink);
+      overflow-x: auto;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .ai-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 780px;
+    }
+
+    .ai-table th, .ai-table td {
+      padding: 18px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.8rem;
+      line-height: 1.6;
+    }
+
+    .ai-table th {
+      color: var(--red-light);
+      font: 0.66rem "DM Mono", monospace;
+      text-transform: uppercase;
+      background: rgba(231, 185, 52, 0.08);
+    }
+
+    .reflection-callout {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 24px;
+    }
+
+    .reflection-callout > div {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 20px 18px;
+    }
+
+    .reflection-callout h3 {
+      margin: 0 0 8px;
+      font-size: 1rem;
+      font-weight: 800;
+    }
+
+    .reflection-callout p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.8rem;
+    }
+
+    .career-grid {
+      display: grid;
+      grid-template-columns: 1fr 0.8fr;
+      gap: 30px;
+    }
+
+    .timeline {
+      border-left: 1px solid var(--line);
+      padding-left: 18px;
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 18px 0 18px 16px;
+    }
+
+    .timeline-item:before {
+      position: absolute;
+      left: -25px;
+      top: 24px;
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      background: var(--red);
+      content: "";
+    }
+
+    .timeline-item span {
+      color: var(--red-light);
+      font-size: 0.66rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .timeline-item h3 {
+      margin: 10px 0 8px;
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .timeline-item p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 0.8rem;
+    }
+
+    .resume-launch {
+      margin-top: 22px;
+    }
+
+    .career-plan {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 20px 18px;
+    }
+
+    .career-plan h3 {
+      margin: 0 0 18px;
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    .goal {
+      padding: 12px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .goal:first-of-type { border-top: 0; }
+    .goal span {
+      display: block;
+      color: var(--red-light);
+      font: 0.62rem "DM Mono", monospace;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .goal p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.7;
+    }
+
+    .reflection-article {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 28px;
+    }
+
+    .article-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font: 0.64rem "DM Mono", monospace;
+      text-transform: uppercase;
+    }
+
+    .reflection-article h3 {
+      margin: 22px 0 18px;
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.05em;
+    }
+
+    .reflection-article p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.9;
+      margin: 0 0 16px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 20px;
+    }
+
+    .contact-card, .contact-form {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      padding: 22px;
+    }
+
+    .contact-card h3, .contact-form h3 {
+      margin: 0 0 18px;
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+
+    .contact-item i {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--line);
+      border-radius: 50%;
+      color: var(--red-light);
+    }
+
+    .contact-form form {
+      display: grid;
+      gap: 16px;
+    }
+
+    .field-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .field input, .field textarea, .field select {
+      width: 100%;
+      border: 1px solid var(--line);
+      padding: 12px 14px;
+      background: var(--paper);
+      color: var(--ink);
+      font: 0.78rem/1.6 "Manrope", sans-serif;
+    }
+
+    textarea { min-height: 150px; resize: vertical; }
+
+    .submit-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    #form-feedback {
+      color: var(--red-light);
+      font-size: 0.78rem;
+      min-height: 1.2em;
+    }
+
+    .site-footer {
+      border-top: 1px solid var(--line);
+      background: rgba(23, 21, 14, 0.85);
+      color: var(--muted);
+      padding: 18px 0 36px;
+      font-size: 0.7rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid, .about-grid, .career-grid, .contact-grid, .security-panel { grid-template-columns: 1fr; }
+      .project-grid, .certificate-grid { grid-template-columns: 1fr 1fr; }
+      .section-head { grid-template-columns: 68px 1fr; }
+      .section-intro { grid-column: 1 / -1; }
+      .hero-note { justify-self: start; }
+    }
+
+    @media (max-width: 640px) {
+      .nav-links { display: none; }
+      .project-grid, .certificate-grid, .skills-layout, .reflection-callout, .field-row { grid-template-columns: 1fr; }
+      .stats { grid-template-columns: 1fr; }
+      .case-content { grid-template-columns: 1fr; padding-left: 22px; }
+      .security-body { grid-template-columns: 1fr; }
+      .section-head { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home">
+        <span class="brand-mark">JA</span>
+        <span data-fill="name"> Jose Lhinvir Armada</span>
+      </a>
+
+      <nav aria-label="Main navigation">
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certificates">Certificates</a></li>
+          <li><a href="#cases">Cases</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a class="icon-button" href="#contact" aria-label="Contact"><i class="bi bi-envelope"></i></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow" data-fill="eyebrow">BSIT Portfolio</span>
+          <h1>Hi, I'm <span data-fill="name"> Jose Lhinvir Armada</span></h1>
+          <div class="role-line mono">
+            <span id="typed-role" data-fill="role">Beginner Developer</span>
+            <span class="typing-caret" aria-hidden="true"></span>
+          </div>
+          <p class="hero-copy" data-fill="heroCopy">I build practical digital experiences that are useful, secure, and easy to trust.</p>
+
+          <div class="button-row">
+            <a class="button-primary" href="#projects">View projects</a>
+            <a class="button-secondary" href="#contact">Get in touch</a>
+          </div>
+
+          <div class="social-links">
+            <a href="https://github.com/armadajeyhel-web" target="_blank" rel="noreferrer"><i class="bi bi-github"></i> GitHub</a>
+            <a href="https://www.linkedin.com/in/jeyhel-armada-4b010b447/" target="_blank" rel="noreferrer"><i class="bi bi-linkedin"></i> LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="hero-aside">
+          <aside class="profile-card" aria-label="Profile photo">
+            <div class="profile-photo" id="profile-photo-preview">
+              <img src="assets/profile-picture.png" alt=" Jose Lhinvir Armada profile picture">
+            </div>
+          </aside>
+          <aside class="hero-note">
+            <div class="note-label">Right now</div>
+            <p data-fill="snapshot">Studying information technology with a focus on secure systems, user experience, and dependable problem solving.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">01 / 10</span>
+          <h2 class="section-title">A little about me.</h2>
+          <p class="section-intro">Technology matters when it makes someone's day work better.</p>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy">
+            <p data-fill="aboutOne">I am a Bachelor of Science in Information Technology graduate building a career around useful, dependable technology. My studies gave me a broad view of the discipline: programming, databases, systems analysis, networking, cybersecurity, and the teamwork that brings them together.</p>
+            <p data-fill="aboutTwo">I enjoy moving between those layers, asking how a feature should work for a person and what makes a system reliable under real conditions. I care about clarity, structure, and evidence, because good technology should be understandable, efficient, and safe to use.</p>
+          </div>
+
+          <div class="stats" aria-label="Quick statistics">
+            <div class="stat">
+              <span class="stat-value" data-count="4">0</span>
+              <span class="stat-label">Key projects</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" data-count="6">0</span>
+              <span class="stat-label">Core skills</span>
+            </div>
+            <div class="stat">
+              <span class="stat-value" data-count="100">0</span>
+              <span class="stat-label">Problem-solving mindset</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">02 / 10</span>
+          <h2 class="section-title">Skills with depth.</h2>
+          <p class="section-intro">I work across the stack, but I always aim for clarity and maintainability.</p>
+        </div>
+
+        <div class="skills-layout">
+          <div class="skill-group">
+            <h3><span>Core development</span><i class="bi bi-code-slash"></i></h3>
+            <div class="skill-list">
+              <span class="skill-tag">HTML</span>
+              <span class="skill-tag">CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Bootstrap</span>
+              <span class="skill-tag">Responsive UI</span>
+              <span class="skill-tag">Accessibility</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3><span>Systems &amp; data</span><i class="bi bi-database"></i></h3>
+            <div class="skill-list">
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">Database Design</span>
+              <span class="skill-tag">ERD</span>
+              <span class="skill-tag">Data Validation</span>
+              <span class="skill-tag">Troubleshooting</span>
+              <span class="skill-tag">Documentation</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3><span>Security thinking</span><i class="bi bi-shield-check"></i></h3>
+            <div class="skill-list">
+              <span class="skill-tag">Input validation</span>
+              <span class="skill-tag">Secure coding</span>
+              <span class="skill-tag">OWASP awareness</span>
+              <span class="skill-tag">Least privilege</span>
+              <span class="skill-tag">Safe defaults</span>
+              <span class="skill-tag">Audit mindset</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h3><span>Collaboration</span><i class="bi bi-people"></i></h3>
+            <div class="skill-list">
+              <span class="skill-tag">Requirements</span>
+              <span class="skill-tag">Testing</span>
+              <span class="skill-tag">Feedback</span>
+              <span class="skill-tag">Project planning</span>
+              <span class="skill-tag">Communication</span>
+              <span class="skill-tag">Problem framing</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">03 / 10</span>
+          <h2 class="section-title">Built around real problems.</h2>
+          <p class="section-intro">These projects show how I translate requirements into useful, testable results.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-art art-edupedia">
+              <img src="assets/edupedia.png" alt="Screenshot of the EduPedia Datamex College of Saint Adeline campus article">
+            </div>
+            <div class="project-meta"><span>Website</span><span>2025</span></div>
+            <h3>Blossom Boutique</h3>
+            <p>A flower boutique project concept for browsing arrangements, managing product listings, handling orders, and presenting a clean shop experience.</p>
+            <div class="project-actions">
+              <a href="https://blossomboutique.free.je/" target="_blank" rel="noreferrer" class="text-link">Wikipedia <i class="bi bi-arrow-up-right"></i></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-art art-ai">
+             <img src="assets/taskfl0w.png" alt="Screenshot of the taskfl0w website project">
+            </div>
+            <div class="project-meta"><span>Workflow</span><span>2025</span></div>
+            <h3>Taskfl0w</h3>
+            <p>Built a prompt-driven workflow that organizes notes, summarizes findings, and keeps evidence visible rather than buried in output.</p>
+            <div class="project-actions">
+              <a href="https://taskfl0w.page.gd" target="_blank" rel="noreferrer" class="text-link">View notes <i class="bi bi-arrow-up-right"></i></a>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-art art-peak">
+              <img src="assets/peakco-project.png" alt="Screenshot of the Peak.co website project">
+            </div>
+            <div class="project-meta"><span>Product</span><span>2024</span></div>
+            <h3>Peak.co</h3>
+            <p>Premium headwear forged in the streets, inspired by 90s hiphop. Built for creators, DJs, and dancers who refuse to settle.</p>
+            <div class="project-actions">
+              <a href="https://jowd777.github.io/PeakCo/" target="_blank" rel="noreferrer" class="text-link">Project link <i class="bi bi-arrow-up-right"></i></a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="certificates">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">03.5 / 10</span>
+          <h2 class="section-title">Certificates.</h2>
+          <p class="section-intro">Selected certifications and learning milestones that reflect my technical growth.</p>
+        </div>
+
+        <div class="certificate-grid">
+          <button class="certificate-card certificate-trigger" type="button" data-image="assets/bero%20cert/467ba97d-12fc-4147-ba7f-6e2259c6ba2d.jpg" data-alt="Certificate 1" aria-label="Expand certificate 1 for clearer reading">
+            <img src="assets/bero%20cert/467ba97d-12fc-4147-ba7f-6e2259c6ba2d.jpg" alt="Certificate 1">
+          </button>
+          <button class="certificate-card certificate-trigger" type="button" data-image="assets/bero%20cert/85c5e575-04fa-4767-9590-bcfdbe7bb55d.jpg" data-alt="Certificate 2" aria-label="Expand certificate 2 for clearer reading">
+            <img src="assets/bero%20cert/85c5e575-04fa-4767-9590-bcfdbe7bb55d.jpg" alt="Certificate 2">
+          </button>
+          <button class="certificate-card certificate-trigger" type="button" data-image="assets/bero%20cert/876a5346-0163-4fb9-98c4-7cc8618b7e89.jpg" data-alt="Certificate 3" aria-label="Expand certificate 3 for clearer reading">
+            <img src="assets/bero%20cert/876a5346-0163-4fb9-98c4-7cc8618b7e89.jpg" alt="Certificate 3">
+          </button>
+          <button class="certificate-card certificate-trigger" type="button" data-image="assets/bero%20cert/a531843e-d926-41c0-be97-8aeea2670228.jpg" data-alt="Certificate 4" aria-label="Expand certificate 4 for clearer reading">
+            <img src="assets/bero%20cert/a531843e-d926-41c0-be97-8aeea2670228.jpg" alt="Certificate 4">
+          </button>
+          <button class="certificate-card certificate-trigger" type="button" data-image="assets/bero%20cert/b881725a-d244-44e0-9cc5-028c2f0db496.jpg" data-alt="Certificate 5" aria-label="Expand certificate 5 for clearer reading">
+            <img src="assets/bero%20cert/b881725a-d244-44e0-9cc5-028c2f0db496.jpg" alt="Certificate 5">
+          </button>
+        </div>
+
+        <div id="certificate-modal" class="certificate-modal" aria-hidden="true">
+          <div class="certificate-modal-panel" role="dialog" aria-modal="true" aria-label="Certificate viewer">
+            <button class="certificate-modal-close" type="button" aria-label="Close certificate viewer">&times;</button>
+            <img id="certificate-modal-image" src="" alt="Expanded certificate preview">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cases">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">04 / 10</span>
+          <h2 class="section-title">Decision-making, not guesswork.</h2>
+          <p class="section-intro">Good systems are shaped by clear trade-offs and evidence.</p>
+        </div>
+
+        <div class="case-list">
+          <details class="case-item" open>
+            <summary>
+              <span class="case-num">01</span>
+              <strong>Database normalization</strong>
+              <span class="case-icon"><i class="bi bi-chevron-down"></i></span>
+            </summary>
+            <div class="case-content">
+              <div class="case-field">
+                <label>Problem</label>
+                <p>Repeated records and unclear ownership made reporting inconsistent.</p>
+              </div>
+              <div class="case-field">
+                <label>Fix</label>
+                <p>Normalized entities, clarified relationships, and simplified queries for the reporting layer.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="case-item">
+            <summary>
+              <span class="case-num">02</span>
+              <strong>Input validation</strong>
+              <span class="case-icon"><i class="bi bi-chevron-down"></i></span>
+            </summary>
+            <div class="case-content">
+              <div class="case-field">
+                <label>Problem</label>
+                <p>Unrestricted form input allowed malformed data and confusing user flows.</p>
+              </div>
+              <div class="case-field">
+                <label>Fix</label>
+                <p>Added type checks, validation rules, and clearer error messages before data reached storage.</p>
+              </div>
+            </div>
+          </details>
+
+          <details class="case-item">
+            <summary>
+              <span class="case-num">03</span>
+              <strong>Workflow clarity</strong>
+              <span class="case-icon"><i class="bi bi-chevron-down"></i></span>
+            </summary>
+            <div class="case-content">
+              <div class="case-field">
+                <label>Problem</label>
+                <p>Teams were moving quickly but not always from the same understanding of the task.</p>
+              </div>
+              <div class="case-field">
+                <label>Fix</label>
+                <p>Defined scope, acceptance criteria, and required checks before implementation started.</p>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="security">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">05 / 10</span>
+          <h2 class="section-title">Security, by design.</h2>
+          <p class="section-intro">Treat input as data, never executable instruction.</p>
+        </div>
+
+        <div class="security-panel" data-reveal>
+          <aside class="security-aside">
+            <span class="eyebrow">Defensive security case study</span>
+            <h3>SQL injection in a sign-in form</h3>
+            <p>String concatenation is not a safe way to build queries from user input.</p>
+            <span class="mono" style="color: var(--red); font-size: 0.63rem;">OWASP · INJECTION</span>
+          </aside>
+
+          <div class="security-body">
+            <div>
+              <h4>Definition / vector</h4>
+              <p>Untrusted input changes query meaning; crafted login or search text may bypass logic or expose records.</p>
+            </div>
+            <div>
+              <h4>Risks</h4>
+              <p>Unauthorized access, data disclosure or modification, account compromise, and lost trust.</p>
+            </div>
+            <div>
+              <h4>Prevention</h4>
+              <p>Use parameterized queries, validate expected type/length, least privilege. Filtering alone is not enough.</p>
+            </div>
+            <div>
+              <h4>Secure practices</h4>
+              <p>Generic auth errors, modern password hashing, no secrets in source control, and never log credentials.</p>
+            </div>
+
+            <pre class="code-sample"><code>// Safe: query structure stays separate from user data
+const query = "SELECT id FROM users WHERE email = ? AND password_hash = ?";
+db.execute(query, [email, passwordHash]);</code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ai-log">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">06 / 10</span>
+          <h2 class="section-title">AI with receipts.</h2>
+          <p class="section-intro">AI can speed up a draft. It cannot own the result.</p>
+        </div>
+
+        <div class="table-wrap" data-reveal>
+          <table class="ai-table">
+            <thead>
+              <tr>
+                <th>Date</th>
+                <th>Task</th>
+                <th>AI assistance</th>
+                <th>Personal verification / audit result</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2026-02-12</td>
+                <td>Plan database</td>
+                <td>Compared entities and relationship questions.</td>
+                <td>Redrew ERD from requirements; checked keys, cardinality, normalization.</td>
+              </tr>
+              <tr>
+                <td>2026-02-18</td>
+                <td>Debug validation</td>
+                <td>Explained browser validation and likely causes.</td>
+                <td>Reproduced; tested empty, malformed, valid input; retained server validation.</td>
+              </tr>
+              <tr>
+                <td>2026-03-03</td>
+                <td>Review security</td>
+                <td>Suggested injection and output-encoding checklist.</td>
+                <td>Checked implementation and trusted docs; used parameterized SQL.</td>
+              </tr>
+              <tr>
+                <td>2026-03-14</td>
+                <td>Dashboard summary</td>
+                <td>Suggested labels and concise summary.</td>
+                <td>Recomputed from source rows and corrected a misleading interpretation.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="reflection-callout" data-reveal>
+          <div>
+            <h3>Where AI helps</h3>
+            <p>Brainstorming, explaining concepts, generating test ideas, and improving a draft can accelerate sound work.</p>
+          </div>
+          <div>
+            <h3>Where I draw the line</h3>
+            <p>No private data in public tools, no untested code accepted, no confident output treated as evidence. I verify and own the decision.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="career">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">07 / 10</span>
+          <h2 class="section-title">Ready for the next step.</h2>
+          <p class="section-intro">Evidence today, deliberate growth over three years.</p>
+        </div>
+
+        <div class="career-grid">
+          <div>
+            <div class="timeline" data-reveal>
+              <div class="timeline-item">
+                <span class="mono">Education</span>
+                <h3>BS Information Technology</h3>
+                <p>Your College / University · 2022–2026<br>Systems analysis, databases, software development, networking, information assurance.</p>
+              </div>
+              <div class="timeline-item">
+                <span class="mono">Experience</span>
+                <h3>IT Support Intern / Project Contributor</h3>
+                <p>Your Organization · 2025–2026<br>Replace with verified duties and measurable contributions.</p>
+              </div>
+              <div class="timeline-item">
+                <span class="mono">Certifications</span>
+                <h3>IT &amp; Cloud Foundations</h3>
+                <p>Add verified credential, issuer, and date only.</p>
+              </div>
+            </div>
+
+            <a class="button-secondary resume-launch" href="assets/Documents/resume.pdf" target="_blank" rel="noopener noreferrer">View résumé</a>
+          </div>
+
+          <div class="career-plan" data-reveal>
+            <h3>Career development plan</h3>
+            <div class="goal"><span class="mono">Target</span><p>Junior Full-Stack Developer or Application Support Engineer; build secure, maintainable software.</p></div>
+            <div class="goal"><span class="mono">6 months</span><p>Ship two polished projects, practice interviews weekly, earn a cloud or security fundamentals credential.</p></div>
+            <div class="goal"><span class="mono">1 year</span><p>Contribute to production code; strengthen testing, deployment, and code review habits.</p></div>
+            <div class="goal"><span class="mono">3 years</span><p>Own a feature from discovery to monitoring; deepen expertise and help teammates through documentation.</p></div>
+            <div class="goal"><span class="mono">Prep</span><p>Practice project walkthroughs, STAR examples, debugging explanations, and trade-off discussions.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reflection">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">08 / 10</span>
+          <h2 class="section-title">A note to future me.</h2>
+          <p class="section-intro">The work behind the qualification, and the work still ahead.</p>
+        </div>
+
+        <article class="reflection-article" data-reveal>
+          <div class="article-top"><span>Final reflection</span><span>BSIT · 2022—2026</span></div>
+          <h3>Learning to build is also learning to ask better questions.</h3>
+          <p>When I began studying information technology, I imagined that progress would look like collecting languages and tools. I did learn to write code, configure systems, query databases, and make interfaces. But the more important change was learning how to approach a problem before reaching for a solution. What does the person actually need? What evidence do I have? Which assumption can I test first? Those questions have made me more useful than any single framework.</p>
+          <p>My first substantial programming assignments taught me that a working result and a dependable result are not always the same thing. A feature could appear correct with one example and fail as soon as someone entered an empty value, used a different device, or followed an unexpected path. I learned to treat validation, clear error states, and testing as part of the feature itself. That shift changed how I plan work: I now think about ordinary use and edge cases together, and I try to make the next person's understanding of the code part of the deliverable.</p>
+          <p>Databases and systems analysis helped me see the value of structure. A well-considered data model makes relationships visible and reduces avoidable inconsistency. A readable diagram can uncover a missing requirement before it turns into a difficult migration. Building dashboards taught me a related lesson: a chart is an argument about what matters. If the source data is incomplete or the calculation is wrong, a polished visualization only makes the mistake more persuasive. I have become more careful about checking definitions, tracing values back to their source, and explaining limitations alongside results.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <span class="section-index">09 / 10</span>
+          <h2 class="section-title">Let’s talk.</h2>
+          <p class="section-intro">If you are looking for someone dependable, curious, and ready to learn, I’d love to connect.</p>
+        </div>
+
+        <div class="contact-grid">
+          <aside class="contact-card">
+            <h3>Contact details</h3>
+            <div class="contact-list">
+              <div class="contact-item"><i class="bi bi-envelope"></i> <span>armadajeyhel@gmail.com</span></div>
+              <div class="contact-item"><i class="bi bi-geo-alt"></i> <span>Metro Manila, Philippines</span></div>
+            </div>
+          </aside>
+
+          <div class="contact-form">
+            <h3>Send a quick message</h3>
+            <form id="contact-form">
+              <div class="field-row">
+                <label class="field">
+                  <span>Name</span>
+                  <input type="text" name="name" placeholder=" Jose Lhinvir Armada" required>
+                </label>
+                <label class="field">
+                  <span>Email</span>
+                  <input type="email" name="email" placeholder="armadajeyhel@gmail.com" required>
+                </label>
+              </div>
+
+              <label class="field">
+                <span>Subject</span>
+                <input type="text" name="subject" placeholder="Project inquiry" required>
+              </label>
+
+              <label class="field">
+                <span>Message</span>
+                <textarea name="message" placeholder="Tell me a little about your opportunity..." required></textarea>
+              </label>
+
+              <div class="submit-row">
+                <button class="button-primary" type="submit">Send message</button>
+                <span id="form-feedback" aria-live="polite"></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;">
+        <span>&copy; <span id="year">2026</span> <span data-fill="name"> Jose Lhinvir Armada</span></span>
+        <span>Built with clarity, structure, and purpose.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const portfolioContent = {
+      name: ' Jose Lhinvir Armada',
+      eyebrow: 'BSIT Portfolio',
+    
+      heroCopy: 'I build practical digital experiences that are useful, secure, and easy to trust.',
+      snapshot: 'Studying information technology with a focus on secure systems, user experience, and dependable problem solving.',
+      aboutOne: 'I am a Bachelor of Science in Information Technology graduate building a career around useful, dependable technology. My studies gave me a broad view of the discipline: programming, databases, systems analysis, networking, cybersecurity, and the teamwork that brings them together.',
+      aboutTwo: 'I enjoy moving between those layers, asking how a feature should work for a person and what makes a system reliable under real conditions. I care about clarity, structure, and evidence, because good technology should be understandable, efficient, and safe to use.',
+      email: 'armadajeyhel@gmail.com',
+      location: 'Location, Country'
+    };
+
+    document.querySelectorAll('[data-fill]').forEach((node) => {
+      const key = node.dataset.fill;
+      if (portfolioContent[key]) {
+        node.textContent = portfolioContent[key];
+      }
+    });
+
+    const roleOptions = ['Intern Developer'];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    function typeRole() {
+      const role = roleOptions[roleIndex];
+      const target = document.getElementById('typed-role');
+      if (!target) return;
+
+      charIndex += deleting ? -1 : 1;
+      target.textContent = role.slice(0, charIndex);
+
+      if (!deleting && charIndex >= role.length) {
+        deleting = true;
+        setTimeout(typeRole, 900);
+        return;
+      }
+
+      if (deleting && charIndex <= 0) {
+        deleting = false;
+        roleIndex = (roleIndex + 1) % roleOptions.length;
+      }
+
+      setTimeout(typeRole, deleting ? 95 : 55);
+    }
+
+    setTimeout(typeRole, 1800);
+
+    document.getElementById('contact-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      const form = event.currentTarget;
+      if (!form.reportValidity()) return;
+
+      const formData = new FormData(form);
+      const subject = encodeURIComponent(formData.get('subject'));
+      const body = encodeURIComponent(`From: ${formData.get('name')} (${formData.get('email')})\n\n${formData.get('message')}`);
+
+      document.getElementById('form-feedback').textContent = 'Your email draft is ready. Your email app should open now.';
+      window.location.href = `mailto:${portfolioContent.email}?subject=${subject}&body=${body}`;
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const certificateModal = document.getElementById('certificate-modal');
+    const certificateModalImage = document.getElementById('certificate-modal-image');
+    const certificateModalClose = document.querySelector('.certificate-modal-close');
+
+    const closeCertificateModal = () => {
+      certificateModal.classList.remove('visible');
+      certificateModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    document.querySelectorAll('.certificate-trigger').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        certificateModalImage.src = trigger.dataset.image;
+        certificateModalImage.alt = trigger.dataset.alt || 'Expanded certificate';
+        certificateModal.classList.add('visible');
+        certificateModal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    certificateModalClose.addEventListener('click', closeCertificateModal);
+    certificateModal.addEventListener('click', (event) => {
+      if (event.target === certificateModal) closeCertificateModal();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && certificateModal.classList.contains('visible')) {
+        closeCertificateModal();
+      }
+    });
+
+    document.querySelectorAll('[data-count]').forEach((node) => {
+      const target = Number(node.dataset.count || 0);
+      let start = null;
+      const animate = (timestamp) => {
+        if (!start) start = timestamp;
+        const progress = Math.min((timestamp - start) / 850, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        node.textContent = Math.round(target * eased);
+        if (progress < 1) requestAnimationFrame(animate);
+      };
+      requestAnimationFrame(animate);
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
