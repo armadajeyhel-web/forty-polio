@@ -1,12 +1,12 @@
 # Read
 
-## Kenneth Bohol | BSIT Portfolio
+## JOSE LHINVIR S. ARMADA | BSIT Portfolio
 
 This project is a single-page portfolio website for Jhon Emilson, built as a modern personal landing page for a Bachelor of Science in Information Technology profile.
 
 ## Link for portfolio
 
-Kenneth
+[RIZAL](https://armadajeyhel-web.github.io/forty-polio/)
 
 ## Overview
 
@@ -61,7 +61,7 @@ The portfolio includes sections for:
 
 ## Contact details included in the site
 
-- Email: emilsonbero@gmail.com
+- Email: armadajeyhel@gmail.com
 - Location: Metro Manila, Philippines
 
 ## Notes
