@@ -786,6 +786,36 @@
       margin-top: 22px;
     }
 
+    .employability {
+      margin-top: 38px;
+      padding: 22px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+    }
+
+    .employability h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    .employability p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.8rem;
+      line-height: 1.7;
+    }
+
+    .mock-interview-video {
+      display: block;
+      width: 100%;
+      max-height: 680px;
+      aspect-ratio: 16 / 9;
+      border: 1px solid var(--line);
+      background: #000;
+      object-fit: contain;
+    }
+
     .career-plan {
       border: 1px solid var(--line);
       background: var(--surface);
@@ -977,6 +1007,8 @@
           <li><a href="#projects">Projects</a></li>
           <li><a href="#certificates">Certificates</a></li>
           <li><a href="#cases">Cases</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#employability">Employability</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -1130,10 +1162,10 @@
               <img src="assets/edupedia.png" alt="Screenshot of the EduPedia Datamex College of Saint Adeline campus article">
             </div>
             <div class="project-meta"><span>Website</span><span>2025</span></div>
-            <h3>Blossom Boutique</h3>
-            <p>A flower boutique project concept for browsing arrangements, managing product listings, handling orders, and presenting a clean shop experience.</p>
+            <h3>EduTrack</h3>
+            <p>The institution’s development, as outlined in this profile, spans vocational computer training programs.</p>
             <div class="project-actions">
-              <a href="https://blossomboutique.free.je/" target="_blank" rel="noreferrer" class="text-link">E-commerse <i class="bi bi-arrow-up-right"></i></a>
+              <a href="https://edutrck.xo.je/login.php" target="_blank" rel="noreferrer" class="text-link">Website <i class="bi bi-arrow-up-right"></i></a>
             </div>
           </article>
 
@@ -1367,7 +1399,7 @@ db.execute(query, [email, passwordHash]);</code></pre>
       </div>
     </section>
 
-    <section class="section" id="career">
+    <section class="section" id="resume">
       <div class="container">
         <div class="section-head">
           <span class="section-index">07 / 10</span>
@@ -1406,6 +1438,15 @@ db.execute(query, [email, passwordHash]);</code></pre>
             <div class="goal"><span class="mono">3 years</span><p>Own a feature from discovery to monitoring; deepen expertise and help teammates through documentation.</p></div>
             <div class="goal"><span class="mono">Prep</span><p>Practice project walkthroughs, STAR examples, debugging explanations, and trade-off discussions.</p></div>
           </div>
+        </div>
+
+        <div class="employability" id="employability" data-reveal>
+          <h3>Mock interview</h3>
+          <p>A mock interview showcasing interview readiness and communication.</p>
+          <video class="mock-interview-video" controls preload="metadata" playsinline aria-label="Mock interview video">
+            <source src="assets/video/jose.mp4" type="video/mp4">
+            Your browser does not support the video element.
+          </video>
         </div>
       </div>
     </section>
